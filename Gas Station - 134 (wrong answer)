@@ -1,0 +1,29 @@
+int canCompleteCircuit(int* gas, int gasSize, int* cost, int costSize) {
+    int sum=0,flag=0,n=gasSize,a=-1;
+    for(int i=0;i<n;i++)
+    {
+        sum=0;
+        if(flag==0)
+        {
+            if(gas[i]>cost[i])
+            {
+                a=i;
+                for(int j=i;j<n+i;j++)
+                {
+                    sum+=gas[j%n]-cost[j%n];
+                    if(sum>=0)
+                    {
+                    flag=1;
+                    }
+                    else
+                    {
+                        a=-1;
+                        flag=0;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return a;
+}
