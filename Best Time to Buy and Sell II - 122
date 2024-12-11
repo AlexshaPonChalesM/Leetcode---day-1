@@ -1,0 +1,11 @@
+int maxProfit(int* profit, int n) {
+    int profits=0;
+    for(int i=1;i<n;i++)
+    {
+        if(profit[i]>profit[i-1])
+        {
+            profits+=profit[i]-profit[i-1];
+        }
+    }
+    return profits;
+}
